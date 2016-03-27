@@ -54,9 +54,9 @@ function Update () {
 	steer	  = Input.GetAxis("Steer");
 	handbrake = Input.GetAxis("Handbrake");
 
-	if (Input.GetKeyDown("joystick button 1") && currentGear <= gearRatios.Length-2) 
+	if (Input.GetButtonDown("ShiftUp") && currentGear <= gearRatios.Length-2) 
 		currentGear++;
-	if (Input.GetKeyDown("joystick button 2") && currentGear >= 1)
+	if (Input.GetButtonDown("ShiftDown") && currentGear >= 1)
 		currentGear--;
 
 	engineRPM  = (((rlwheel.angularVelocity + rrwheel.angularVelocity) / 2) * gearRatios[currentGear] * finalDrive) * 60 / (2 * Mathf.PI);
